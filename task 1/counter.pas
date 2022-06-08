@@ -119,8 +119,24 @@ type
         end;
   end;
   
+  function searching_for_a_string_within_string(s:string; f:string):integer;
   begin
-    var s: string;
-    readln(s);
+    var c := new counter(1000, s);
+    var t : integer;
+    for var i:=0 to c.len do 
+    begin
+      if s = f then
+        begin
+          t:= i;
+          searching_for_a_string_within_string:=t;
+        end
+    end;
+    if t<1 then searching_for_a_string_within_string:= -1 
+  end;
+  
+  begin
+    var s, f: string;
+    readln(s, f);
     writeln(get_dublicate(s))
+    //writeln(searching_for_a_string_within_string(s, f))
   end.
